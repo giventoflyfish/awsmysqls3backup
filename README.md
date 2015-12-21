@@ -3,18 +3,18 @@
 General Information
 ===================
 
-This script will allow Amazon AWS users to backup their website and MySQL databases to S3 buckets. This allows you to keep the backups off the EC2 instances onto cheaper S3 storage.
+This script will allow Amazon AWS users to backup their websites and MySQL databases to S3 buckets. This allows you to keep the backups off the EC2 instances onto cheaper S3 storage.
 
-<blockquote>WARNING: Please read Amazon's guidances on setting up IAM users for S3 access. Do not use your root account for this. Setup a specific IAM users that only has basic S3 bucket PUT and List permissions. Think security first! Feel free to contact me if you have questions about this.</blockquote>
+<blockquote>WARNING: Please read Amazon's guidance on setting up IAM users for S3 access. Do not use your root account for this. Setup a specific IAM user that only has basic S3 bucket PUT and List permissions. Think security first! Feel free to contact me if you have questions about this.</blockquote>
 
-Generally the script will backup each of your MySQL databases to the temp directory. There is a temp directory for each webiste. Then it will backup each of your websites. After successful backup, it will upload all files to your S3 Bucket (folder for each website). The script will remove all files created and it list the most recent 6 files uploaded to each of the S3 bucket folders. Lastly, it will email you with the results of the script.
+Generally, the script will backup each of your MySQL databases to the temp directory. There is a temp directory for each webiste. Then it will backup each of your websites. After successful backups, it will upload all files to your S3 Bucket (folder for each website). The script will remove all files it creates and it list the most recent 6 files uploaded to each of the S3 bucket folders. Lastly, it will email you with the results of the script.
 
 You can easily create a cron job to run this regularly.
 
 Initial Setup Tips
 ------------------
 
-You'll need to create a .backups file. Please this file in a secure location and ensure no one case access it. The contents of the file should be as follows. Add a line for each database user and password.
+You'll need to create a .backups file. Put this file in a secure location and ensure no one can access it. The contents of the file should be as follows. Add a line for each database user and password. Be consistent on the order for every section of the configuration.
 
 ```BASH
 MYSQL_USER=(
@@ -86,7 +86,7 @@ SAVE_DIR=(
 "/path/to/backuproot/websitename3"
 )
 ```
-Change the S3bucketname/website for each of your website. The Bucket and folders need to be created prior
+Change the S3bucketname/website for each of your websites. The Bucket and folders need to be created prior
 ```BASH
 S3BUCKET=(
 "s3bucketname/websitename1"
