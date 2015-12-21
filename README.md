@@ -1,4 +1,4 @@
-# awss3backup
+# awsmysqls3backup
 
 General Information
 ===================
