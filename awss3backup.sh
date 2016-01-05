@@ -141,7 +141,7 @@ echo -e "\n\n" >> $EMAILMESSAGE
 echo -e "Backup Completed. Review S3 logs above.\n\n" >> $EMAILMESSAGE
 
 # send mail
-sendmail -f "$FROMEMAIL" "$TOEMAIL" < $EMAILMESSAGE
+/usr/sbin/sendmail -f "$FROMEMAIL" "$TOEMAIL" < $EMAILMESSAGE
 
 #delete email
 rm $EMAILMESSAGE
